@@ -34,6 +34,7 @@
 - [References](#references)
 
 # New
+- Pergolas bioclimaticas
 - Mid Air woven playground? https://youtube.com/shorts/vfMidFUS3jE?si=zkaldV6lb_U6OpqP
 - Wood stove? Nope, we had at home for years and didn't use it. Maybe in the attic, but not inside.
 - All the cables and tubing exposed, like a garage tray. Easy maintenance and modification
