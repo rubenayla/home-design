@@ -19,6 +19,10 @@
     - [Other](#other)
     - [Rooftop](#rooftop)
     - [Bedroom](#bedroom)
+        - [Desk room](#desk-room)
+        - [Play room (Living room)](#play-room-living-room)
+        - [Reading zone](#reading-zone)
+        - [Instrument room](#instrument-room)
 - [Where](#where)
 - [Workshop](#workshop)
 - [Water](#water)
@@ -215,54 +219,41 @@ Imagine the door, the side of the bathroom accessible first (opposite to the doo
     > Needs cold, to not spoil
 
 ## Rooftop
-
 Rooftop to chill under the stars or nice sunset/sunrise. Some structure to provide shading, fire pit?, 
 The floor/ceiling extends southwards for shading and eastwards to cover the entrance when it rains.
 Hammock and stuff, place to read.
-</details>
-## Bedroom
 
+## Bedroom
 Tiny, simple, relaxing and cozy bedroom, with tatami and futon. Elevated platform or small room with carpet tiles, windows, smart bulbs.
+> This must NOT be part of the loft. There are lots of things that might make noises or lights during the night. Better separate tiny room
 
 Oriented at east, without street lights, so that you can wake up with the sunrise (if you want).
-</details>
-<details>
-    <summary>Desk room</summary>
 
+### Desk room
 The layout will be a big table that goes around you in the shape of U, one side of the U against the wall, the other free to the room, so you could sit with other people in conversation.
-<details>
-    <summary>Play room (Living room)</summary>
 
+### Play room (Living room)
 Games, TV, couch, place for reading (light, socket, carpet, shelving with books)
-</details>
-<details>
-    <summary>Reading zone</summary>
 
+### Reading zone
 Either room or cozy zone to chill, read close to a window in a sofa
-</details>
-<details>
-    <summary>Instrument room</summary>
 
+### Instrument room
 Piano in room probably at south-west of floor 1.
 
 Soundproof etc.
 Might use this as guest room too.
-</details>
 
 # [Where](Where.md)
 
 # [Workshop](Workshop.md)
 
 # Water
-<details>
-    <summary>Water storage, collection, and filtering</summary>
-
 Take the water from the rain, filter it, and store it clean. This allows us to add water with a truck in case of drought.
 
 Drinking water, grey water, and dirty water will be separate.
 
 Make some hump at the lower part of the property to keep rainwater and make it filter into the ground.
-</details>
 
 ## Heating
 
@@ -270,8 +261,6 @@ The house will have no gas, so there must be a system to heat the water with ele
 
 1. Investigate taps that can warm water instantly, without a boiler. This would provide hot water instantly, without wasting water.
 2. Investigate an electric boiler with heat pump. This lets the use of electricity when it is cheapest and most abundant.
-</details>
-
 
 
 # HVAC - Temp of air
