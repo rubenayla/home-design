@@ -19,10 +19,11 @@
     - [Other](#other)
     - [Rooftop](#rooftop)
     - [Bedroom](#bedroom)
-        - [Desk room](#desk-room)
-        - [Play room (Living room)](#play-room-living-room)
-        - [Reading zone](#reading-zone)
-        - [Instrument room](#instrument-room)
+    - [Desk room](#desk-room)
+    - [Play room (Living room)](#play-room-living-room)
+    - [Bunker craziness](#bunker-craziness)
+    - [Reading zone](#reading-zone)
+    - [Instrument room](#instrument-room)
 - [Where](#where)
 - [Workshop](#workshop)
 - [Water](#water)
@@ -229,16 +230,21 @@ Tiny, simple, relaxing and cozy bedroom, with tatami and futon. Elevated platfor
 
 Oriented at east, without street lights, so that you can wake up with the sunrise (if you want).
 
-### Desk room
+## Desk room
 The layout will be a big table that goes around you in the shape of U, one side of the U against the wall, the other free to the room, so you could sit with other people in conversation.
 
-### Play room (Living room)
+## Play room (Living room)
 Games, TV, couch, place for reading (light, socket, carpet, shelving with books)
 
-### Reading zone
+Probably floor -1, since it's dark and easily isolated from the rest of the house. Good for films, and close to the kitchen.
+
+## Bunker craziness
+would go in floor -2 if I were to add it.
+
+## Reading zone
 Either room or cozy zone to chill, read close to a window in a sofa
 
-### Instrument room
+## Instrument room
 Piano in room probably at south-west of floor 1.
 
 Soundproof etc.
