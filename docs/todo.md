@@ -1,0 +1,15 @@
+# TODO
+- Add photos about outside wall options: maintenance free, pretty, durable: from Photos.
+- add electric shower to bathroom https://youtu.be/jNqdgE4KyEY?si=njrhT6MRI48vuRZq 
+    - No wait for hot water, cheaper. It's just better.
+- Try rendair.ai
+- Pergolas bioclimaticas
+- Mid Air woven playground? https://youtube.com/shorts/vfMidFUS3jE?si=zkaldV6lb_U6OpqP
+- Wood stove? Nope, we had at home for years and didn't use it. Maybe in the attic, but not inside.
+- All the cables and tubing exposed, like a garage tray. Easy maintenance and modification
+- Corners seem annoying, but they're the ideal places for tables. Triangle or curvy shaped, go around you.
+- Close the kitchen? separate room or some glass, to isolate smoke and noise. But eat there, so keep big.
+- Underground pipe for thermal mass? T is constant about 1m below surface.
+- Awning (heat) + Curtain (darkness) > Blinds (Noisy when closing at night and break). Window with no coating, let the heat in for winter.
+- Add requirements for DANA, ridiculous amounts of water with high speed, depending on placement.
+- Develop the score calculation software in `tools/score_calculator.py`.

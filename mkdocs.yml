@@ -1,0 +1,22 @@
+site_name: Home Design
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+nav:
+  - Home: index.md
+  - Location: location.md
+  - Layout:
+    - Overview: layout/index.md
+    - Workshop: layout/workshop.md
+    - Entrance: layout/entrance.md
+    - Loft: layout/loft.md
+    - Kitchen: layout/kitchen.md
+    - Bathroom: layout/bathroom.md
+    - Rooftop: layout/rooftop.md
+    - Bedroom: layout/bedroom.md
+    - Other Rooms: layout/other_rooms.md
+  - Systems: systems.md
+  - TODO: todo.md
+  - Reference: reference.md
