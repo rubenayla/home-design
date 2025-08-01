@@ -97,7 +97,7 @@
     - Heat exchanger, heat pump, solar panels, uses radiator with the outside to get energy to the heat pump. Floor heating. THE CLOSET IS IN THE BATHROOM!. Lots of these ideas.
 - https://database.passivehouse.com/en/
 - Temperature
-    - [arizona_temperature_passive.pdf](arizona_temperature_passive.pdf)
+    - [arizona_temperature_passive.pdf](references/arizona_temperature_passive.pdf)
     - [https://www.nrel.gov/docs/legosti/old/17135.pdf](https://www.nrel.gov/docs/legosti/old/17135.pdf)
 - Nomad Capitalist
     - [The Best Countries in the World to Live in](https://youtu.be/cFqd991o1N8)

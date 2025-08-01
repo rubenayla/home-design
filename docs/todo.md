@@ -1,4 +1,5 @@
 # TODO
+- GYM goes at -1, stable temperature and free space for leisure and noise. Could go elsewhere though.
 - Add photos about outside wall options: maintenance free, pretty, durable: from Photos.
 - add electric shower to bathroom https://youtu.be/jNqdgE4KyEY?si=njrhT6MRI48vuRZq 
     - No wait for hot water, cheaper. It's just better.
