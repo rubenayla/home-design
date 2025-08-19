@@ -98,34 +98,35 @@ These filters address the governmental and financial aspects of a location.
     - Wind generally from west to east
 - Big mass of water at the west to stabilize air temperature, and lower the horizon
 
-!!! info "Global air circulation - Ferrel Mid-latitude cell"
+!!! details "Visualizations"
+    !!! info "Global air circulation - Ferrel Mid-latitude cell"
 
-![Earth Global Circulation - en.svg](assets/images/earth_circulation.svg)
-![Untitled.png](assets/images/location_untitled.png)
+        ![Earth Global Circulation - en.svg](assets/images/earth_circulation.svg)
+        ![Untitled.png](assets/images/location_untitled.png)
 
-!!! info "Max temperature of warmest month"
+    !!! info "Max temperature of warmest month"
 
-![20230902161523.png](assets/images/max_temp_warmest_month.png)
+        ![20230902161523.png](assets/images/max_temp_warmest_month.png)
 
-!!! info "Average temperature"
+    !!! info "Average temperature"
 
-![Annual Average Temperature Map.png](assets/images/average_temperature.png)
+        ![Annual Average Temperature Map.png](assets/images/average_temperature.png)
 
-!!! info "Cloud Cover"
+    !!! info "Cloud Cover"
 
-![Cloud cover](assets/images/cloud_cover.png)
+        ![Cloud cover](assets/images/cloud_cover.png)
 
-!!! info "Diurnal air temperature variation"
+    !!! info "Diurnal air temperature variation"
 
-![Diurnal air temperature variation](assets/images/diurnal_temp_variation.png)
+        ![Diurnal air temperature variation](assets/images/diurnal_temp_variation.png)
 
-!!! info "Köppen–Geiger climate classification system"
+    !!! info "Köppen–Geiger climate classification system"
 
-![Köppen–Geiger climate classification system](assets/images/koppen_geiger_climates.png)
+        ![Köppen–Geiger climate classification system](assets/images/koppen_geiger_climates.png)
 
-!!! info "Nomad index - Best cities for digital nomads"
+    !!! info "Nomad index - Best cities for digital nomads"
 
-![cities.jpg](assets/images/nomad_cities.jpg)
+        ![cities.jpg](assets/images/nomad_cities.jpg)
 
 # References
 - **[5 Best (and Worst) Places to Build a Home or Village](https://youtu.be/0Trz6NvsUQQ)**

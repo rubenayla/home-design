@@ -8,7 +8,7 @@
         At the workshop you'll need protection. Clothing that will make you warm. There are components sensitive to too much heat. Therefore we leave the coldest place for the workshop.
 - The garage door open both the workshop and garage. They are the same room, with movable separator to protect the cars.
     !!! info "Flexible Access"
-        This allows to adjust for different amount of cars parked, and direct access from outside.[Home](Home.md)
+        This allows to adjust for different amount of cars parked, and direct access from outside.[Home](../index.md)
 
 # General stuff
 Keep it flexible. Have vehicle access. Visualize section layout like an intestine (fractal). High surface area, easy user access while short distance.

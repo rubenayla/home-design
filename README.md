@@ -2,6 +2,12 @@
 
 This repository contains the documentation for my home design project. The documentation is built using MkDocs.
 
+## Project Structure
+
+*   `/docs`: Contains the Markdown source files for the MkDocs documentation. All content that should be part of the final website goes here.
+*   `/assets`: Holds all the raw files and resources that are *not* part of the documentation website itself, but are related to the project (e.g., CAD files, data files, etc.).
+*   `/stuff`: A general-purpose directory for random files and notes that don't fit into the other categories. This directory is not part of the MkDocs build.
+
 # MKDocs
 
 ## ✅ Preview locally

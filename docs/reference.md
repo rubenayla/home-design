@@ -1,9 +1,4 @@
 # Notes
-## Acronyms
-
-| Acronym | Meaning |
-| --- | --- |
-| HVAC | Heating, Ventilation, and Air Conditioning |
 
 </details>
 
@@ -77,18 +72,20 @@
 
 !!! note "Countertop material"
 
-    - White (light) granite
-    - A little porous. Very resistant to chemicals, heat, UV. Cheap.
-    - Sealing?
-    - Engineered Quartz composite
-    - Quartz dust with 7% resin.
-    - Discolours a bit with UV.
-    - [What's the best kitchen countertop?](https://youtu.be/ZiG-qyEvyM0)
-    - Quartz variations: Agate, quartzite
-    - Slate
-    - Concrete
-    - Porous
-    - Not marble because acids and heat damage it, and it's porous.
+    === "Granite"
+        - Very resistant to chemicals, heat, and UV.
+        - A little porous, may require sealing.
+        - Generally affordable.
+
+    === "Engineered Quartz"
+        - Non-porous and highly durable.
+        - Can discolor with direct UV exposure over time.
+        - Wide range of colors and patterns.
+
+    === "Concrete"
+        - Highly customizable in shape and color.
+        - Porous and requires sealing to prevent stains.
+        - Can develop hairline cracks over time.
 
 
 

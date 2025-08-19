@@ -4,6 +4,9 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
+  - pymdownx.tabbed
+plugins:
+  - search
 nav:
   - Home: index.md
   - Location: location.md
@@ -19,4 +22,5 @@ nav:
     - Other Rooms: layout/other_rooms.md
   - Systems: systems.md
   - TODO: todo.md
+  - Glossary: glossary.md
   - Reference: reference.md

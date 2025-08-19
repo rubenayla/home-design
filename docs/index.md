@@ -5,11 +5,11 @@
 
 
 # Introduction
-!!! info "Home drawings"
+!!! details "Home drawings"
 
-![Drawing 1](./assets/images/drawing_1.png)
-![Drawing 2](./assets/images/drawing_2.png)
-![Drawing 3](./assets/images/drawing_3.png)
+    ![Drawing 1](./assets/images/drawing_1.png)
+    ![Drawing 2](./assets/images/drawing_2.png)
+    ![Drawing 3](./assets/images/drawing_3.png)
 
 Find the most ideal places, and design a good independent house, from first principles.
 
