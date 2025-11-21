@@ -1,4 +1,7 @@
 # TODO
+
+- kitchen unload dishwasher with 0 steps, no need to move. drawers with holders maybe, or just the over-kitchen thing.
+
 1. Create a Central Glossary
 
   You have a good list of acronyms in reference.md. As the project grows, you'll likely have more specialized terms. I suggest creating a dedicated glossary.md page.
