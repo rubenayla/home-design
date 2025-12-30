@@ -1,0 +1,5 @@
+# Rant about heating water
+In europe we are spending lots of money to build huge systems to heat buildings with gas, all those radiators, pipes, the labour to install it, then spend over 2k for the boiler which is going to break and cause more costs, to then have a higher energy bill every month while emitting CO2 and paying Russia for the gas, so they attack us with our own money, while that only solves half the problem, since in places like Spain you could argue that cooling is even more important than heating. On top of that, we have to wait watching how we throw away several liters of water until the water gets hot from the boiler arriving at the tap.
+
+What we could be doing is just warm the freaking water in the taps themselves with small electric heaters which are commonly used in Brazil, from the free energy we get from the sun with solar panels that are super cheap now. You get instant hot water, you dont waste water, it's renewable, it's cheaper to operate, and the cost of installation is 10x lower, while requiring less maintenance too.
+
