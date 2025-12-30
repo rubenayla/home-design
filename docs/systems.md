@@ -9,6 +9,11 @@ Make some hump at the lower part of the property to keep rainwater and make it f
 
 The house will have no gas, so there must be a system to heat the water with electricity (or solar energy).
 
+!!! note "Rant: point-of-use water heating"
+    In Europe we spend lots of money to build huge systems to heat buildings with gas, all those radiators, pipes, the labor to install it, then spend over 2k for the boiler which is going to break and cause more costs, to then have a higher energy bill every month while emitting CO2 and paying Russia for the gas. That only solves half the problem, since in places like Spain you could argue that cooling is even more important than heating. On top of that, we wait while several liters of water go down the drain until the boiler water arrives at the tap.
+
+    What we could be doing is just warm the water in the taps themselves with small electric heaters (commonly used in Brazil), powered by the sun with solar panels that are cheap now. You get instant hot water, you don't waste water, it's renewable, it's cheaper to operate, and the cost of installation is about 10x lower, while requiring less maintenance too.
+
 1. Investigate taps that can warm water instantly, without a boiler. This would provide hot water instantly, without wasting water.
 2. Investigate an electric boiler with heat pump. This lets the use of electricity when it is cheapest and most abundant.
 
@@ -145,4 +150,3 @@ Ventilation from window at west to the attic (chimney effect), kitchen and bathr
     - Methods to increase thermal mass: slabs, water, water wall…
     - In summer, you could ventilate at night and keep the house cool all day
     - In winter, you could heat at noon, when the solar panels are at full power and the outside air is warmest (so the heat pump takes less energy)
-

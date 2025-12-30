@@ -2,3 +2,6 @@
 *data_visualization*
 *.tif
 *.tiff
+.venv/
+*.egg-info/
+site/

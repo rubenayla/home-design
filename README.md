@@ -13,20 +13,22 @@ This repository contains the documentation for my home design project. The docum
 ## ✅ Preview locally
 
 ```bash
-poetry run mkdocs serve
+uv venv --python 3.12.3
+uv sync
+uv run mkdocs serve
 # Open http://127.0.0.1:8000 in your browser
 ```
 
 Or use a specific port:
 
 ```bash
-poetry run mkdocs serve -a 127.0.0.1:8001
+uv run mkdocs serve -a 127.0.0.1:8001
 ```
 
 To build the static site:
 
 ```bash
-poetry run mkdocs build
+uv run mkdocs build
 # Output: site/
 ```
 
@@ -34,11 +36,7 @@ poetry run mkdocs build
 
 ## 🚀 Deploy to GitHub Pages
 
-```bash
-poetry run mkdocs gh-deploy
-```
-
-> GitHub Pages must be enabled in the repo settings (branch: `gh-pages`).
+Push to `main`. GitHub Actions builds and deploys the site on successful builds.
 
 ---
 
@@ -47,7 +45,7 @@ poetry run mkdocs gh-deploy
 PDF export is disabled by default to speed up builds. To export PDFs explicitly:
 
 ```bash
-EXPORT_PDF=true poetry run mkdocs build
+EXPORT_PDF=true uv run mkdocs build
 # Outputs: site/pdf/kart-documentation.pdf
 ```
 
@@ -56,7 +54,7 @@ EXPORT_PDF=true poetry run mkdocs build
 
 ## 🗂 Branch structure
 
-- `main` → Markdown source
-- `gh-pages` → Auto-generated static site (read-only)
+- `main` → Markdown source and tooling
+- GitHub Pages → Auto-generated static site via Actions
 
 Do all edits on `main`.
