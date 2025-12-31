@@ -11,6 +11,10 @@
     ![Drawing 2](./assets/images/drawing_2.png)
     ![Drawing 3](./assets/images/drawing_3.png)
 
+    **AI renders**
+    ![AI render 1](./assets/images/ai_render_1.jpg)
+    ![AI render 2](./assets/images/ai_render_2.png)
+
 Find the most ideal places, and design a good independent house, from first principles.
 
 **One of the most expensive things** that people buy in their whole life is their homes, so I think it would be a good idea to know very well and early what we’re generally looking for, in order to make the best possible buying decision. Even if we end up renting one, it’s still expensive, and affects our mood and productivity.
@@ -98,5 +102,4 @@ The ground with grass-like strong and low maintenance plants.
 
 - paraffin wax phase-change material to stabilize nice temperature perfectly
 - Consider geothermal source to connect the heat pumps, if the location has great temperature changes. It's more efficient and prevents freezing the exchanger.
-
 
