@@ -36,7 +36,15 @@ uv run mkdocs build
 
 ## 🚀 Deploy to GitHub Pages
 
-Push to `main`. GitHub Actions builds and deploys the site on successful builds.
+Recommended (modern): push to `main`. GitHub Actions builds and deploys the site on successful builds using the workflow in `.github/workflows/docs.yml`. This does not use a `gh-pages` branch.
+
+Alternative (legacy): use the MkDocs built-in deploy command, which publishes to a `gh-pages` branch:
+
+```bash
+uv run mkdocs gh-deploy --force
+```
+
+If you use the legacy method, set GitHub Pages to deploy from the `gh-pages` branch in repo settings.
 
 ---
 
