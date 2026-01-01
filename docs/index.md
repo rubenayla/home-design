@@ -12,8 +12,7 @@
     ![Drawing 3](./assets/images/drawing_3.png)
 
     **AI renders**
-    ![AI render 1](./assets/images/ai_render_1.jpg)
-    ![AI render 2](./assets/images/ai_render_2.png)
+    ![AI render](./assets/images/ai_render.png)
 
 Find the most ideal places, and design a good independent house, from first principles.
 
@@ -102,4 +101,3 @@ The ground with grass-like strong and low maintenance plants.
 
 - paraffin wax phase-change material to stabilize nice temperature perfectly
 - Consider geothermal source to connect the heat pumps, if the location has great temperature changes. It's more efficient and prevents freezing the exchanger.
-
