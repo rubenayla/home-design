@@ -23,5 +23,14 @@
 - Awning (heat) + Curtain (darkness) > Blinds (Noisy when closing at night and break). Window with no coating, let the heat in for winter.
 - Add requirements for DANA, ridiculous amounts of water with high speed, depending on placement.
 - Develop the score calculation software in `tools/score_calculator.py`.
+- Location scoring: layer learned spatial embeddings on top of the climate/horizon/Köppen filters in `docs/location.md`.
+    - Stage 1 (regional): existing CHELSA / Köppen / horizon / political filters cut the globe to viable lat/lon regions.
+    - Stage 2 (neighborhood): use Google Earth AI embeddings to rank neighborhoods inside surviving regions.
+        - **S2Vec** — built environment (buildings, roads, businesses, transit) → predicts income, density, etc. Replaces hand-wavy "free country with powerful economy" with actual neighborhood features.
+        - **RS-MaMMUT** — satellite imagery (vegetation, terrain).
+        - **PDFM** — population dynamics.
+        - Best results in the paper come from fusing S2Vec + satellite embeddings.
+    - Lets us express things current filters can't: "quiet but ≤X min from services", "low-rise residential next to a park", as nearest-neighbor queries in embedding space.
+    - TODO before committing to it: check whether S2Vec weights / API are publicly available (research paper from Google, Apr 2026). Source: https://x.com/yohaniddawela/status/2047651290432389291
 - Si vamos a poner una valla alrededor de la casa, 
 - If we're going to put a fence around the house, the house should be part of the fence (part of the perimeter), so we save an extra door to have to open everyday, we save time, and also that space and extra brick. You can look at USA houses with no fence, norway ones where the fence turns inside creating an exposed entrance zone, so the house is not so close to the street, or just make it right there. In cities buildings are huge and it's no problem.
