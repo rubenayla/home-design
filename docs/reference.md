@@ -70,6 +70,14 @@
     - S Fold. Open/close automatically depending on the temperature and routines.
     - Rose Home Fashion Blackout curtains
 
+!!! note "Drawers vs. boxes on shelving"
+
+    **Small drawers should not exist** — a box on an open shelf does the same job better.
+
+    - A box can be **pulled out and carried** to wherever you're working, and **covered with a lid** to keep contents clean and contained. No drawer hardware needed.
+    - Nice-to-have: some **resistance/damping** when pulling the box out so it doesn't slam off the shelf.
+    - **Exception:** for **frequent, one-handed access**, real drawers win (soft-close, single-motion open without lifting a box out). Use drawers only there; default to boxes-on-shelving everywhere else.
+
 !!! note "Countertop material"
 
     === "Granite"
