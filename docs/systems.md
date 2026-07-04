@@ -21,6 +21,8 @@ The house will have no gas, so there must be a system to heat the water with ele
 # HVAC - Temp of air
 The system will use first all the natural resources available, opening and closing windows, curtains, etc. Then, it will use the heat pump to get the perfect temperature.
 
+For the physical glass and shading elements being controlled here (glazing spec, persiana vs blackout curtain vs interior shutter), see [Glass & Shading](glazing.md).
+
 ```python
 class HVACSystem:
     """
