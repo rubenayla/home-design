@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Home Design — parametric massing</title>
+<style>
+  html,body{margin:0;height:100%;background:#0e1116;color:#cfd6df;font:13px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;overflow:hidden}
+  #c{display:block;width:100vw;height:100vh}
+  #info{position:fixed;left:12px;top:12px;max-width:280px;background:rgba(18,22,28,.72);border:1px solid #2a323c;border-radius:8px;padding:10px 12px;pointer-events:none}
+  #info h1{margin:0 0 4px;font-size:14px;font-weight:600;color:#eaeef3}
+  #info p{margin:4px 0;color:#98a2b0}
+  #info b{color:#cfd6df}
+  .dg.main{filter:none}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="info">
+  <h1>Home — parametric massing</h1>
+  <p>Drag to orbit · scroll to zoom · right-drag to pan.</p>
+  <p>Sliders (top-right) change dimensions live. The <b>sun</b> panel moves the light — set azimuth ≈ south to check the solar roof and overhang shading.</p>
+  <p id="dims"></p>
+</div>
+
+<script src="./vendor/three.min.js"></script>
+<script src="./vendor/OrbitControls.js"></script>
+<script src="./vendor/dat.gui.min.js"></script>
+<script>
+// Axes: +X=East  -X=West   +Z=South  -Z=North   +Y=Up. House north wall at z=0.
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0e1116);
+scene.fog = new THREE.Fog(0x0e1116, 60, 140);
+
+const renderer = new THREE.WebGLRenderer({canvas:document.getElementById('c'), antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.1, 1000);
+camera.position.set(15, 11, 17);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+
+// ---- lights ----
+const hemi = new THREE.HemisphereLight(0xbfd4e8, 0x4a5238, 0.55);
+scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff2d9, 1.05);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048,2048);
+const sc = sun.shadow.camera; sc.left=-40; sc.right=40; sc.top=40; sc.bottom=-40; sc.near=1; sc.far=200;
+scene.add(sun); scene.add(sun.target);
+const sunBall = new THREE.Mesh(new THREE.SphereGeometry(0.6,16,16), new THREE.MeshBasicMaterial({color:0xffe08a}));
+scene.add(sunBall);
+
+// ---- ground + grid ----
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(300,300), new THREE.MeshStandardMaterial({color:0x6f8f4e, roughness:1}));
+ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene.add(ground);
+const grid = new THREE.GridHelper(120,120, 0x223, 0x1a2028); grid.position.y=0.01; scene.add(grid);
+
+// ---- compass labels ----
+function label(text, color){
+  const c=document.createElement('canvas'); c.width=c.height=128; const g=c.getContext('2d');
+  g.fillStyle=color; g.font='bold 88px sans-serif'; g.textAlign='center'; g.textBaseline='middle'; g.fillText(text,64,68);
+  const t=new THREE.CanvasTexture(c); const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t}));
+  s.scale.set(3,3,3); return s;
+}
+function placeLabels(d,w){
+  [...scene.children].filter(o=>o.userData.lbl).forEach(o=>scene.remove(o));
+  const R = Math.max(d,w)+8;
+  const N=label('N','#7fd4ff'), S=label('S','#ffd27f'), E=label('E','#b6f08f'), W=label('W','#e0a0ff');
+  N.position.set(0,2,-R); S.position.set(0,2,d+R-8); E.position.set(w/2+R-4,2,d/2); W.position.set(-(w/2+R-4),2,d/2);
+  [N,S,E,W].forEach(o=>{o.userData.lbl=1; scene.add(o);});
+}
+
+// ---- materials ----
+const M = {
+  concrete: new THREE.MeshStandardMaterial({color:0xc4c0b7, roughness:0.92}),
+  glass:    new THREE.MeshStandardMaterial({color:0x5f97c9, roughness:0.08, metalness:0.4, transparent:true, opacity:0.55, depthWrite:false, side:THREE.DoubleSide, emissive:0x0a1a2a}),
+  solar:    new THREE.MeshStandardMaterial({color:0x1b2a4a, roughness:0.35, metalness:0.5}),
+  timber:   new THREE.MeshStandardMaterial({color:0x9c6b3f, roughness:0.7}),
+  deck:     new THREE.MeshStandardMaterial({color:0xb08a5a, roughness:0.8}),
+  door:     new THREE.MeshStandardMaterial({color:0x44484d, roughness:0.6, metalness:0.3}),
+  trunk:    new THREE.MeshStandardMaterial({color:0x5b4327, roughness:1}),
+  ever:     new THREE.MeshStandardMaterial({color:0x2f5d3a, roughness:1}),
+  fruit:    new THREE.MeshStandardMaterial({color:0x6a8f3c, roughness:1}),
+};
+
+// ---- parameters ----
+const P = {
+  widthEW: 9, depthNS: 7, floors: 2, floorH: 3.0, roofRise: 2.6,
+  overhang: 1.3, workshopH: 3.2, terraceW: 4, terraceD: 2.5,
+  sunAz: 180, sunEl: 55, trees: true, solar: true, pergola: true, autoRotate: false,
+};
+
+let house = new THREE.Group(); scene.add(house);
+
+function box(w,h,d,mat,x,y,z,rx,ry){
+  const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+  m.position.set(x,y,z); if(rx)m.rotation.x=rx; if(ry)m.rotation.y=ry;
+  m.castShadow=true; m.receiveShadow=true; return m;
+}
+
+function rebuild(){
+  // dispose old
+  house.traverse(o=>{ if(o.geometry)o.geometry.dispose(); });
+  scene.remove(house); house = new THREE.Group(); scene.add(house);
+
+  const w=P.widthEW, d=P.depthNS, gH=P.workshopH, upF=Math.max(0,P.floors-1), fH=P.floorH;
+  const southTop = gH + upF*fH;
+  const northTop = southTop + P.roofRise;
+
+  // solid mass: extruded quad profile (u=z, v=y): (0,0)-(d,0)-(d,southTop)-(0,northTop)
+  const sh = new THREE.Shape();
+  sh.moveTo(0,0); sh.lineTo(d,0); sh.lineTo(d,southTop); sh.lineTo(0,northTop); sh.lineTo(0,0);
+  const geo = new THREE.ExtrudeGeometry(sh,{depth:w,bevelEnabled:false});
+  const mass = new THREE.Mesh(geo, M.concrete);
+  mass.rotation.y = -Math.PI/2; mass.position.x = w/2;
+  mass.castShadow=true; mass.receiveShadow=true; house.add(mass);
+
+  // sloped roof + solar, extended by overhang toward south
+  const run = d + P.overhang;
+  const yEnd = northTop - P.roofRise*run/d;      // roof height at overhang tip
+  const drop = northTop - yEnd;
+  const ang  = Math.atan2(drop, run);            // tilt below horizontal
+  const L = Math.hypot(run, drop);
+  const roof = box(w+0.4, 0.16, L, P.solar?M.solar:M.concrete, 0, (northTop+yEnd)/2+0.05, run/2, ang, 0);
+  house.add(roof);
+  // thin timber fascia at the south eave
+  house.add(box(w+0.4, 0.28, 0.28, M.timber, 0, yEnd+0.05, run));
+
+  // glass: south face runs full height (south is living, not workshop); east face upper floors only
+  const gSh = southTop - 0.4;
+  const gS = new THREE.Mesh(new THREE.PlaneGeometry(w*0.96, gSh), M.glass);
+  gS.position.set(0, 0.4+gSh/2, d+0.03); house.add(gS);
+  const gEh = southTop - gH;
+  const gE = new THREE.Mesh(new THREE.PlaneGeometry(d*0.9, gEh), M.glass);
+  gE.position.set(w/2+0.03, gH+gEh/2, d/2); gE.rotation.y = Math.PI/2; house.add(gE);
+
+  // garage door on the north (solid) face, at ground level
+  const gwd = Math.min(3.2, w*0.55), ghd = Math.min(2.5, gH*0.82);
+  const gd = new THREE.Mesh(new THREE.PlaneGeometry(gwd, ghd), M.door);
+  gd.position.set(0, ghd/2, -0.03); gd.rotation.y = Math.PI; house.add(gd);
+
+  // rooftop terrace pocket, set back on the high (north) side, sitting ON the roof slope
+  const tz = 0.3 + P.terraceD/2;
+  const ty = (northTop - (P.roofRise/d)*tz) + 0.08;
+  house.add(box(P.terraceW, 0.12, P.terraceD, M.deck, 0, ty, tz));
+  const rail=(x,z,lw,ld)=>house.add(box(lw,0.5,ld,M.timber,x,ty+0.31,z));
+  rail(0, tz+P.terraceD/2, P.terraceW, 0.06);           // south rail
+  rail(-P.terraceW/2, tz, 0.06, P.terraceD);            // west rail
+  rail(P.terraceW/2, tz, 0.06, P.terraceD);             // east rail
+
+  // pergola extending east over the entrance
+  if(P.pergola){
+    const pLen=3.0, pH=2.4, pz0=d*0.25, pz1=d*0.85;
+    house.add(box(pLen,0.12,pz1-pz0, M.timber, w/2+pLen/2, pH, (pz0+pz1)/2)); // canopy
+    [pz0,pz1].forEach(z=>house.add(box(0.15,pH,0.15,M.timber, w/2+pLen-0.1, pH/2, z)));
+    for(let i=0;i<5;i++){const z=pz0+(pz1-pz0)*i/4; house.add(box(pLen,0.06,0.06,M.timber,w/2+pLen/2,pH+0.08,z));}
+  }
+
+  // trees: fruit (low, south) and evergreen (tall, north)
+  if(P.trees){
+    const fruitX=[-w*0.7, w*0.9, w*0.1], fruitZ=[d+3, d+5, d+7];
+    for(let i=0;i<3;i++){ const x=fruitX[i], z=fruitZ[i];
+      house.add(box(0.25,1.4,0.25,M.trunk,x,0.7,z));
+      const c=new THREE.Mesh(new THREE.SphereGeometry(1.3,12,12),M.fruit); c.position.set(x,2.4,z); c.castShadow=true; house.add(c);}
+    const evX=[-w*0.8, w*0.85, -w*0.1], evZ=[-4,-5,-7];
+    for(let i=0;i<3;i++){ const x=evX[i], z=evZ[i];
+      house.add(box(0.3,1.2,0.3,M.trunk,x,0.6,z));
+      const c=new THREE.Mesh(new THREE.ConeGeometry(1.4,5.5,12),M.ever); c.position.set(x,3.8,z); c.castShadow=true; house.add(c);}
+  }
+
+  placeLabels(d,w);
+  controls.target.set(0, southTop*0.5, d/2);
+  updateSun();
+  document.getElementById('dims').innerHTML =
+    `<b>${P.widthEW}×${P.depthNS} m</b> footprint · ${P.floors} floors · roof ${(ang*180/Math.PI).toFixed(0)}° · ridge ${northTop.toFixed(1)} m`;
+}
+
+function updateSun(){
+  const az=P.sunAz*Math.PI/180, el=P.sunEl*Math.PI/180, R=60, hcos=Math.cos(el);
+  const x=R*hcos*Math.sin(az), z=-R*hcos*Math.cos(az), y=R*Math.sin(el); // az0=N(-z),90=E(+x),180=S(+z)
+  sun.position.set(x,Math.max(y,2),z); sunBall.position.copy(sun.position);
+  sun.target.position.set(0,2,P.depthNS/2); sun.target.updateMatrixWorld();
+}
+
+// ---- GUI ----
+const gui = new dat.GUI({width:280});
+const fd = gui.addFolder('Dimensions (m)');
+fd.add(P,'widthEW',5,16,0.5).name('width E–W').onChange(rebuild);
+fd.add(P,'depthNS',4,12,0.5).name('depth N–S').onChange(rebuild);
+fd.add(P,'floors',2,3,1).name('floors').onChange(rebuild);
+fd.add(P,'floorH',2.4,4,0.1).name('floor height').onChange(rebuild);
+fd.add(P,'workshopH',2.6,4.5,0.1).name('ground/workshop h').onChange(rebuild);
+fd.add(P,'roofRise',1,4.5,0.1).name('roof rise (N)').onChange(rebuild);
+fd.add(P,'overhang',0,3,0.1).name('south overhang').onChange(rebuild);
+fd.open();
+const fr = gui.addFolder('Rooftop terrace');
+fr.add(P,'terraceW',2,8,0.5).name('width').onChange(rebuild);
+fr.add(P,'terraceD',1.5,5,0.5).name('depth').onChange(rebuild);
+const fs = gui.addFolder('Sun');
+fs.add(P,'sunAz',0,360,1).name('azimuth (180=S)').onChange(updateSun);
+fs.add(P,'sunEl',5,90,1).name('elevation').onChange(updateSun);
+fs.open();
+const fo = gui.addFolder('Show');
+fo.add(P,'solar').name('solar roof').onChange(rebuild);
+fo.add(P,'trees').name('trees').onChange(rebuild);
+fo.add(P,'pergola').name('pergola').onChange(rebuild);
+fo.add(P,'autoRotate').name('auto-rotate');
+
+rebuild();
+
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+window.view=(x,y,z)=>{camera.position.set(x,y,z);controls.update();};
+(function loop(){ requestAnimationFrame(loop); controls.autoRotate=P.autoRotate; controls.update(); renderer.render(scene,camera); })();
+</script>
+</body>
+</html>
