@@ -109,3 +109,44 @@ for geometry fidelity vs. pure-prompt concept exploration; start with concept ex
 
 **Convention note:** this repo (and all of the user's repos) keeps `history.md` in the **repo ROOT**, not
 in `.agents/`. Moved here 2026-06-30.
+
+## 2026-07-04 — 3D approach: hand-coded Three.js failed; AI-image→CAD not ready; use floor-plan tools
+
+**What happened.** Built a parametric Three.js massing model (`renders/3d/`, orbit + dimension sliders +
+movable sun + N/S/E/W labels). It works for *massing*, but hand-placing boxes by typed coordinates
+produced repeated geometry bugs: the solar roof was tilted the wrong way (flipped `rotation.x` sign) and
+sheared off as a floating slab; the pergola landed east instead of south; the roof/terrace clipped the
+floor. User (rightly) lost confidence that hand-coded geometry scales to a detailed multi-room house with
+doors without clashing. See `.agents/error-log.md` 2026-07-04 (I saw the roof bug in my own screenshot and
+rationalized it as "cosmetic").
+
+**Investigation — is AI-CAD-from-images ready? Verdict: NO for an editable building model.**
+- *Image → editable parametric CAD*: **GenCAD** (MIT, 2026) does exactly this but is research-only (no
+  product/API) and needs clean isometric CAD line-drawings, not photos/renders. Not usable.
+- *Text/image → parametric CAD*: **Zoo.dev / KittyCAD** is the real leader (free tier, precise B-Rep via
+  their KCL language) but scoped to mechanical *parts*; explicitly "not there yet" for complex multi-body
+  assemblies and "dimensional accuracy cannot be expected." A house is out of scope. Consensus: hybrid
+  AI+human, not autonomous.
+- *Image → 3D mesh*: **Meshy / Tripo / Rodin** are fast and mature but output a frozen, non-editable,
+  irregular-topology "blob roughly the right shape" — a photo in 3D, not a design.
+
+**What IS ready for rooms/doors/no-clash: floor-plan-based building tools** (building-aware walls/doors/
+windows primitives, so geometry can't clash like hand-placed boxes; many export BIM/CAD): **Planner5D**,
+**Snaptrude** (BIM), **Drafted** (DXF/GLB/IFC export), **Maket**, **Arcadium 3D** (free). These are WYSIWYG
+apps the USER drives — I can't operate them.
+
+**Blender:** a good Blender MCP DOES exist (`ahujasid/blender-mcp` + official `blender.org/lab/mcp-server/`)
+— create/modify objects, materials, scene inspection, and **arbitrary Python exec**. It's just NOT
+connected in this session's config (servers here: fusion360, kicad, playwright, notion, qmd, gmail/cal/
+drive, whatsapp, telegram, voicemode). Even if connected, it wouldn't fix clashing: it's freeform mesh
+authoring (same as the Three.js trap), with **no building-aware constraints and no clash detection**.
+Fusion 360's MCP (already connected) is better for the "no crash" goal because it exposes
+**`check_interference` + `measure_distance`** — programmatic collision verification Blender-MCP lacks.
+Blender + **Bonsai (BlenderBIM)** / **Archipack** is real architecture but steep, and driving those
+reliably through the MCP's Python exec is brittle. Blender's real value here: rendering/animation of a
+model produced elsewhere.
+
+**Decided division of labour:** keep the simple 3D model for **massing/orientation/sun only**; do detailed
+rooms/doors in a **floor-plan tool the user drives**; I stay on `docs/`, translating them into a clean
+floor-plan spec (per-floor room list, dimensions, adjacencies, orientation) and critiquing output — no
+hand-placed geometry.
