@@ -11,6 +11,7 @@ This repo contains documentation for a home design project, built with MkDocs.
 **Consult selectively** (grep, never read in full):
 - `error-log.md` — Append-only log of mistakes with root cause and prevention
 - `notes.md` — Design decisions, research findings, and rationale
+- `../history.md` — Dated log of what happened/was learned (in repo **root**, not `.agents/`, per project convention)
 
 ## Project References
 
