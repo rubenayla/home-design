@@ -93,7 +93,6 @@ The ground with grass-like strong and low maintenance plants.
 
 !!! note "General Considerations"
     - Use glass that blocks IR in some locations? Prevent IR from the warm house from coming out in winter, or sun IR in summer. Maybe west windows with it, or only the upper region of the window, like a virtual awning. Only heat in winter towards the floor.
-        - Normal glass lets UVA through (gets to deep skin layers, can be harmful, cause of skin cancer), but blocks UVB (what creates tan, vitamin D, and skin burns). UVC is damaging but absorbed by the ozone layer. I want only UVB through.
     - Some place that allows community without the hindrance of doors, fences, having to let someone in... No stealable stuff and open. Promote the town vibes. Not the depressing usual ones. Maybe just a cool tree-shaded bench near the entrance.
     - Several underground floors that take advantage of all the thermal mass of the ground, specially if the temperature fluctuates a lot.
     - Consider the elevation difference and access points (workshop at north, vehicle entry taking elevation into account)

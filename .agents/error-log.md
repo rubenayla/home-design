@@ -42,3 +42,25 @@ design."
 `drawing_1..3.png` for the form. The reference catalog is inspiration only — detail, not geometry. When
 generating renders, pass `ai_render.png` as the form reference to Nano Banana and keep the stepped-shed-
 roof / glass-wall / rooftop / north-workshop massing. `renders/brief.md` now encodes this.
+
+## 2026-07-10 — Overstated the cosine loss for a vertical UV-transmitting window
+
+**What happened.** Arguing against quartz glazing for vitamin D, I wrote that at summer noon the beam
+"strikes vertical glass at a steep angle — the cosine factor alone cuts it to under a third." The user
+pushed back with a better version of the idea (large skin area, indoors, midday). Recomputing showed my
+claim was wrong.
+
+**Root cause.** Conflated two different quantities. The cosine of the incidence angle governs the *flux
+entering* the window, which determines the **area of the sunlit patch on the floor** — not the
+**irradiance within that patch**. Skin lying inside the patch receives outdoor irradiance × transmittance.
+Correct numbers (Madrid, solstice noon, 73° elevation, fused silica n≈1.487 at 300 nm): Fresnel
+transmittance ≈ 0.62 over two surfaces; ~0.46 of outdoor dose rate once the vertical pane's half-sky view
+of diffuse UVB is accounted for; a 3×2.5 m pane yields a 1.4 m² patch 0.76 m deep. The scheme is
+physically workable — I had reached the right conclusion through a wrong argument.
+
+**Prevention.** When an argument turns on a geometric factor, **compute it** before writing it down; do
+not reason from a remembered cosine. Distinguish flux (W) from irradiance (W/m²) explicitly — a cosine
+that shrinks a beam's footprint does not dim the beam. And a right conclusion reached by a wrong argument
+is still a defect: it collapses the moment someone improves the proposal. The real objection to quartz
+glazing is **seasonal** (no UVB at low winter sun, so it delivers only when it isn't needed) plus thermal
+and cost — none of which depend on geometry.

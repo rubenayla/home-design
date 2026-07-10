@@ -150,3 +150,67 @@ model produced elsewhere.
 rooms/doors in a **floor-plan tool the user drives**; I stay on `docs/`, translating them into a clean
 floor-plan spec (per-floor room list, dimensions, adjacencies, orientation) and critiquing output — no
 hand-placed geometry.
+
+## 2026-07-10 — UV glazing idea killed: no quartz windows, and a factual error fixed
+
+**The idea.** Since normal glass passes UVA (carcinogenic, photoaging) and blocks UVB (vitamin D),
+swap the glazing for quartz/fused silica so UVB comes through. Get the benefit, drop the harm.
+
+**Why it fails.** Three independent reasons, any one sufficient:
+
+1. **The bands are backwards.** UVB is the *more* carcinogenic band, not the safe one — absorbed
+   directly by DNA, forms pyrimidine dimers, ~1000x more erythemally effective per unit energy than
+   UVA. The plan adds the dangerous band while UVA still comes through regardless. And "UVA has no
+   benefit" is contested (Weller et al.: UVA mobilises nitric oxide from skin stores, lowers BP).
+2. **Low sun carries no UVB.** Ozone path length grows fast as elevation drops; below ~30° solar
+   elevation there is essentially no vitamin D synthesis ("shadow longer than you are tall"). Above
+   ~35° latitude that means a vitamin D winter — nothing, even naked outdoors at noon. Our location
+   filters target 30–60° latitude, so the site will be in that band. The intuition that "we only get
+   direct sun in winter at low elevation, so it'd be a safe small dose" is exactly inverted: that is
+   when the UVB is *absent*.
+3. **Dose = risk.** Vitamin D synthesis saturates (previtamin D3 → inert lumisterol/tachysterol, capped
+   at ~10–15% of 7-DHC); DNA damage doesn't. A useful dose is ~1/3 MED over ~25% of body surface,
+   several times weekly; face and hands is <10%. Every minute past the plateau is pure risk, zero return.
+
+**Correction, same day — the geometry argument I first gave was wrong.** I originally wrote that a
+vertical pane's "cosine factor cuts the beam to under a third," so the window rejects UVB when UVB exists.
+That conflates flux with irradiance: the cosine governs how much flux *enters* (hence the **size of the
+sunlit floor patch**), not the irradiance inside it. Skin in the patch receives outdoor irradiance ×
+transmittance. Recomputed for Madrid at solstice noon (73° elevation, fused silica n≈1.487 @ 300 nm):
+T ≈ 0.62 over two surfaces; ≈ **0.46 of the outdoor dose rate** once the pane's half-sky view of diffuse
+UVB is counted (≈2.2× the exposure time); a 3×2.5 m pane throws a **1.4 m² patch, 0.76 m deep**. Lying in
+it indoors at midday with large skin area **does** work. The user proposed exactly that and was right —
+I had reached the correct conclusion via a wrong argument. See `.agents/error-log.md`.
+
+**What actually kills it — season, not geometry.** The pane transmits UVB only when the sun is high,
+i.e. summer: the season you are least likely to be deficient, when incidental exposure already saturates
+you and stepping outside costs nothing. In winter, when deficiency bites, elevation drops below threshold
+and it transmits **zero**. It works when it isn't needed and fails when it is; the filter is stratospheric
+ozone, not the glass. Plus the 0.76 m sun patch sits against the glass at July noon — a no-low-e,
+no-double-glazing, no-solar-control thermal hole in the exact wall that should carry solar-control glazing.
+
+**Better answer, already in the plan:** a screened corner of the [rooftop](docs/layout/rooftop.md).
+Full sky (all the diffuse UVB the pane discards), better dose rate, complete privacy, zero glazing
+compromise, no extra cost. If the appeal of "indoors" is convenience rather than privacy, the 311 nm lamp
+dominates the window on every axis — it also works in winter.
+
+Practical killers on top: fused silica is optical stock (orders of magnitude over float glass; large
+architectural panes possibly not manufactured — not priced), no low-e, no double glazing, conflicts
+with safety-glazing codes, and it **solarizes** (colour centres slowly cut UV transmission, so it
+degrades at its only job). It contradicts every other glass decision on the glazing page.
+
+**Instead:** vitamin D3 1000–2000 IU/day (a few euros a year); or a narrowband 311 nm UVB lamp
+(Sperti, Philips TL01) which delivers a known dose in ~5 min; or UV-blocking film on normal glass if
+UVA is the real concern.
+
+**Error found and fixed.** `docs/reference.md` claimed *"Quartz glass (normal glass, silicon oxide),
+let all UV through"* — conflating quartz glass with normal glass. They are both SiO₂ but transmit
+completely differently (quartz ~200 nm cutoff, soda-lime ~320 nm). That conflation is what made the
+whole plan look workable. Ordinary glass blocks UV because of trace iron and the Na/Ca network
+modifiers, not because of the silica — pure SiO₂ is clear to ~140 nm. Also corrected there: laminated
+glass blocks UVA out to ~380 nm; Starphire is low-iron float, not quartz; standard acrylic cuts off
+~375 nm (only UV-transmitting grades like OP-4 reach ~280 nm).
+
+**Landed:** decision + reasoning in `docs/glazing.md` (new "UV: don't glaze for vitamin D" section),
+`docs/reference.md` wall-material note corrected, and the open aspiration in `docs/index.md`
+("I want only UVB through") marked resolved with a link.

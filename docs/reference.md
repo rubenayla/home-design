@@ -21,9 +21,10 @@
 !!! note "Wall Material"
 
     - Mainly glass curtains, just glass. Otherwise clear walls.
-        - Quartz glass (normal glass, silicon oxide), let all UV through, and infrared.
-        - Laminate between glass blocks all UV.
-        - Starphire, some acrylic also let all UV through.
+        - **Quartz glass is not normal glass.** Both are silicon dioxide, but quartz/fused silica transmits UV down to ~200 nm, while normal soda-lime glass cuts off at ~320 nm — it passes UVA and blocks UVB. The difference is trace iron and the sodium/calcium added to lower the melting point, not the silica.
+        - Laminated glass (PVB interlayer) blocks UVA too, out to ~380 nm.
+        - Starphire is low-iron glass — more UV and blue than standard float, but it is not quartz. Standard acrylic cuts off ~375 nm; only UV-transmitting grades (e.g. OP-4) reach ~280 nm.
+        - We are **not** glazing for UV transmission — see [Glass & Shading](glazing.md#uv-dont-glaze-for-vitamin-d).
 
     - **Clear wood planks (plywood). Wood paneling**
     - **Bricks**
