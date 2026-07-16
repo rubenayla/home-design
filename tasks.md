@@ -1,6 +1,7 @@
 # TODO
 
 - kitchen unload dishwasher with 0 steps, no need to move. drawers with holders maybe, or just the over-kitchen thing.
+- Research porcelanic materials for the countertop. Porcelanic (sintered stone / porcelain slab) is heat-resistant, chemical-resistant, scratch-resistant, and cheap compared to natural stone. Investigate brands (Neolith, Dekton, Laminam), thickness options, edge finishing, and cost per m2. Add findings to docs.
 
 1. Create a Central Glossary
 

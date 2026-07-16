@@ -214,3 +214,30 @@ glass blocks UVA out to ~380 nm; Starphire is low-iron float, not quartz; standa
 **Landed:** decision + reasoning in `docs/glazing.md` (new "UV: don't glaze for vitamin D" section),
 `docs/reference.md` wall-material note corrected, and the open aspiration in `docs/index.md`
 ("I want only UVB through") marked resolved with a link.
+
+## 2026-07-16 — Task boards merged into one at the repo root
+
+The repo had two competing task boards: `tasks.md` in the root (35 lines, a flat `# TODO` list) and
+`.agents/tasks.md` (13 lines, a TODO / In Progress / Done kanban). They were merged into the root
+file and `.agents/tasks.md` was deleted.
+
+**Rationale:** tasks are the project's tasks regardless of who does them; two tasks.md files only
+produce duplicates and stale entries. One `tasks.md` per repo root is now the rule, with no
+`.agents/tasks.md` — stated in `AGENTS.md`.
+
+**Duplicated across both boards (3 of the 4 `.agents/` items).** Each of these existed in the root
+list already, and the `.agents/` copy even annotated itself "(referenced in TODO.md)" — they had been
+transcribed from the root board, which is exactly the failure mode the split caused:
+- *Create glossary.md* — root's version is more detailed (explains the acronym list in
+  `reference.md` as the reason). Root's kept.
+- *Add electric shower documentation* — root's version carries the source video URL and the
+  reasoning ("no wait for hot water, cheaper"). Root's kept.
+- *Add outside wall options with photos* — root's version names where the photos come from
+  ("from Photos"). Root's kept.
+
+**Merged in (1 item, unique to `.agents/`):** research porcelanic (sintered stone / porcelain slab)
+countertop materials — brands, thickness, edge finishing, cost per m2. Placed next to the other
+kitchen item.
+
+**Nothing judged stale and nothing dropped.** The `.agents/` board's In Progress and Done sections
+were both empty, so no completed or abandoned work needed preserving; all 4 items were live.
